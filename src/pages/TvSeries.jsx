@@ -1,9 +1,13 @@
+import { Grid } from '@mui/material'
 import React from 'react'
+import { PageLayout } from '../components/PageLayout'
 
 export const TvSeries = () => {
   return (
-    <div>
-      
-    </div>
+    <PageLayout title='TV series'>
+          <Grid>
+            {'...adatok'}
+          </Grid>
+    </PageLayout>
   )
 }

@@ -6,6 +6,7 @@ import { CiSearch } from "react-icons/ci";
 import { MdMovie } from "react-icons/md";
 import { MdOutlineLiveTv } from "react-icons/md";
 import { useNavigate } from 'react-router';
+import { colors } from '@mui/material';
 
 
 export const MyBottomNav = ()=> {
@@ -21,11 +22,11 @@ export const MyBottomNav = ()=> {
   }
 
   return (
-    <Box sx={{ width: 500, position:"fixed",bottom:0}}>
-      <BottomNavigation style={{backgroundColor:"#8b5cf6"}} showLabels value={value} onChange={handleChange}>
-        <BottomNavigationAction style={{color:"#bfdbfe"}} label="Movies" icon={<MdMovie />} />
-        <BottomNavigationAction style={{color:"#bfdbfe"}} label="Series" icon={<MdOutlineLiveTv/>} />
-        <BottomNavigationAction style={{color:"#bfdbfe"}} label="Search" icon={<CiSearch/>} />
+    <Box sx={{ width: '100vw', position:"fixed",bottom:0}}>
+      <BottomNavigation sx={{backgroundColor:"#6d28d9"}} showLabels value={value} onChange={handleChange}>
+        <BottomNavigationAction sx={{color:"#bfdbfe", fontSize:"larger"}} label="Movies" icon={<MdMovie />} />
+        <BottomNavigationAction sx={{color:"#bfdbfe",fontSize:"larger"}} label="TVSeries" icon={<MdOutlineLiveTv/>} />
+        <BottomNavigationAction sx={{color:"#bfdbfe",fontSize:"larger"}} label="Search" icon={<CiSearch/>} />
       </BottomNavigation>
     </Box>
   );
