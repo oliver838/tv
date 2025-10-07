@@ -6,12 +6,13 @@ import { getData } from '../../utils'
 import { MyCard } from '../components/MyCard'
 
 export const Movies = () => {
-  const {data,isLoading,isError} = useQuery({queryKey:['moviesdata','movie'],queryFn:getData})
+  const [page,setPage] = React.useState(1);
+  const {data,isLoading,isError} = useQuery({queryKey:['moviesdata','movie',page],queryFn:getData})
   data && console.log(data);
   
   return (
 
-    <PageLayout title='Movies'>
+    <PageLayout title='Movies' page={page} setPage={setPage}>
 
       <Grid container spacing={2} sx={{margin:"50px"}} justifyContent='center'>
         {data && data.results.map(obj=>

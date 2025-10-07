@@ -1,7 +1,7 @@
 import React from 'react'
 import { img_300, img_500 } from '../../utils'
 
-export const MyCard = ({backdrop_path,overview}) => {
+export const MyCard = ({poster_path,overview}) => {
   return (
     <div>
       <div class="center">
@@ -13,7 +13,7 @@ export const MyCard = ({backdrop_path,overview}) => {
                     <p class="date">Jan 1, 2022</p>
                     <p class="title">Article Title Goes Here</p>
                 </div>
-                <img src={img_500 +backdrop_path} alt="article-cover" />
+                <img src={img_500 +poster_path} alt="article-cover" />
             </div>
             <div class='back'>
                 {overview}

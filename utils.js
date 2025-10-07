@@ -5,6 +5,7 @@ export const img_300='https://image.tmdb.org/t/p/w300';
 export const img_500='https://image.tmdb.org/t/p/w500';  
 
 export const getData = async({queryKey})=>{
-    const resp = await axios.get(base_url+queryKey[1]+"?api_key="+import.meta.env.VITE_TMDB_API_KEY)
+    const url = base_url+queryKey[1]+"?api_key="+import.meta.env.VITE_TMDB_API_KEY+'&page='+queryKey[2]
+    const resp = await axios.get(url)
     return resp.data
 }
