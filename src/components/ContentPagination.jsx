@@ -1,16 +1,50 @@
 import * as React from 'react';
-import Typography from '@mui/material/Typography';
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 
-export const ContentPagination = ({page,setPage})=> {
+export const ContentPagination = ({ page, setPage }) => {
   const handleChange = (event, value) => {
     setPage(value);
   };
 
   return (
-    <Stack spacing={2}>
-      <Pagination count={10} page={page} onChange={handleChange} />
-    </Stack>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: 4,
+        marginBottom: 4,
+      }}
+    >
+      <Pagination
+        count={20}
+        page={page}
+        onChange={handleChange}
+        color="primary"
+        size="large"
+        shape="rounded"
+        showFirstButton
+        showLastButton
+        sx={{
+          '& .MuiPaginationItem-root': {
+            color: '#fff', // alap fehér szöveg
+            borderColor: '#93c5fd',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              backgroundColor: '#93c5fd',
+              color: '#1e293b', // sötét háttérhez világos szöveg
+            },
+          },
+          '& .Mui-selected': {
+            backgroundColor: '#93c5fd',
+            color: '#1e293b', // kijelölt elem színe
+            '&:hover': {
+              backgroundColor: '#60a5fa', // hoverre kicsit világosabb
+              color: '#1e293b',
+            },
+          },
+        }}
+      />
+    </Box>
   );
-}
+};

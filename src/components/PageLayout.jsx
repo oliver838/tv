@@ -2,17 +2,19 @@ import { Box, Container, Typography } from '@mui/material'
 import React from 'react'
 import { TbBackground } from 'react-icons/tb'
 import { ContentPagination } from './ContentPagination'
+import { Genres } from './Genres'
 
-export const PageLayout = ({title,children,page,setPage}) => {
+export const PageLayout = ({title,children,page,setPage,type,selectedGenres,setSelectedGenres}) => {
   return (
-    <Container maxWidth={false}  sx={{minHeight:'100vh',paddingBottom:"50px" , color:"#bfdbfe",background: "#172554",background: "linear-gradient(180deg,rgba(23, 37, 84, 1) 0%, rgba(167, 139, 250, 1) 100%)"}}>
-        <Typography variant='h3' sx={{textTransform:'uppercase',fontWeight:'bold',letterSpacing:2,textAlign:'center',
+    //color:"#bfdbfe",background: "#172554",background: "linear-gradient(180deg,rgba(23, 37, 84, 1) 0%, rgba(167, 139, 250, 1) 100%)"
+    <Container maxWidth={false}  sx={{minHeight:'100vh',paddingBottom:"50px" , color:"#bfc8feff",background: "#2d2d4eff",background: "linear-gradient(90deg,rgba(32, 32, 36, 1) 0%, rgba(13, 16, 20, 1) 100%)"}}>
+        <Typography variant='h3' sx={{textTransform:'uppercase',padding:'30px',fontWeight:'bold',letterSpacing:2,textAlign:'center',
             background: "#291d3b"
-,background: "linear-gradient(270deg,rgba(172, 150, 204, 1) 0%, rgba(181, 177, 218, 1) 100%)", WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'
+,background: "linear-gradient(270deg,rgba(184, 184, 184, 1) 0%, rgba(101, 106, 117, 1) 100%)", WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'
         }}>
             {title}
         </Typography>
-        <Box>{children}</Box>
+        <Genres type={type} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres}/>
         <Box>{children}</Box>
         <ContentPagination page={page} setPage={setPage}/>
     </Container>

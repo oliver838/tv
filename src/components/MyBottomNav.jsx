@@ -23,10 +23,10 @@ export const MyBottomNav = ()=> {
 
   return (
     <Box sx={{ width: '100vw', position:"fixed",bottom:0, zIndex:10}}>
-      <BottomNavigation sx={{backgroundColor:"#6d28d9"}} showLabels value={value} onChange={handleChange}>
-        <BottomNavigationAction sx={{color:"#bfdbfe", fontSize:"larger"}} label="Movies" icon={<MdMovie />} />
-        <BottomNavigationAction sx={{color:"#bfdbfe",fontSize:"larger"}} label="TVSeries" icon={<MdOutlineLiveTv/>} />
-        <BottomNavigationAction sx={{color:"#bfdbfe",fontSize:"larger"}} label="Search" icon={<CiSearch/>} />
+      <BottomNavigation sx={{backgroundColor:"#1e293b"}} showLabels value={value} onChange={handleChange}>
+        <BottomNavigationAction sx={{color:"#bfdbfe", fontSize:"24px"}} label="Movies" icon={<MdMovie />} />
+        <BottomNavigationAction sx={{color:"#bfdbfe",fontSize:"24px"}} label="TVSeries" icon={<MdOutlineLiveTv/>} />
+        <BottomNavigationAction sx={{color:"#bfdbfe",fontSize:"24px"}} label="Search" icon={<CiSearch/>} />
       </BottomNavigation>
     </Box>
   );
