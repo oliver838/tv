@@ -7,8 +7,8 @@
 
 /* Kártya konténer */
 .card-container {
-  width: 300px;
-  height: 420px;
+  width: 360px;
+  height: 500px;
   perspective: 1000px;
   margin-bottom: 20px;
 }
