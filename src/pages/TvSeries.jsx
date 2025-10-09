@@ -10,7 +10,7 @@ export const TvSeries = () => {
     const [selectedGenres, setSelectedGenres] = useState([])
     const {data,isLoading,isError} = useQuery({queryKey:['tvseries','tv',page,selectedGenres],queryFn:getData})
   return (
-    <PageLayout title='TV series' page={page} setPage={setPage} type='tv' selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres}>
+    <PageLayout title='TV series' page={page} setPage={setPage} type='tv' selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} data={data}>
           <Grid container spacing={3} sx={{margin:"50px"}}  justifyContent='space-around'>
             {data && data.results.map(obj=>
                       <MyCard key={obj.id} {...obj} title={obj.name} release_date={obj.first_air_date}/>

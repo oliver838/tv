@@ -14,9 +14,9 @@ export const Movies = () => {
   
   return (
 
-    <PageLayout title='Movies' page={page} setPage={setPage} type='movie' selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} >
+    <PageLayout title='Movies' page={page} setPage={setPage} type='movie' selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} data={data} >
 
-      <Grid container spacing={3} sx={{margin:"50px"}}  justifyContent='space-around'>
+      <Grid container spacing={3} sx={{margin:"50px"}}  justifyContent='center'>
         {data && data.results.map(obj=>
           <MyCard key={obj.id} {...obj}/>
         )}

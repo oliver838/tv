@@ -3,6 +3,7 @@ import React from 'react'
 import { img_500 } from '../../utils'
 
 export const MyCard = ({ poster_path, overview, release_date, vote_average, title }) => {
+  console.log(title);
   return (
     <div className="card-container">
       <div className="card-inner">

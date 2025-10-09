@@ -3,6 +3,7 @@ import Pagination from '@mui/material/Pagination';
 import Box from '@mui/material/Box';
 
 export const ContentPagination = ({ page, setPage }) => {
+  
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -12,7 +13,10 @@ export const ContentPagination = ({ page, setPage }) => {
       sx={{
         display: 'flex',
         justifyContent: 'center',
-        marginTop: 4,
+        position: 'absolute', // Az elem fixálása
+        bottom: 40, // A képernyő aljára helyezés
+        left: '50%', // Az elem elhelyezése balra a képernyő közepén
+        transform: 'translateX(-50%)', // Középre igazítja a boxot
         marginBottom: 4,
       }}
     >
@@ -27,19 +31,19 @@ export const ContentPagination = ({ page, setPage }) => {
         showLastButton
         sx={{
           '& .MuiPaginationItem-root': {
-            color: '#fff', // alap fehér szöveg
+            color: '#fff',
             borderColor: '#93c5fd',
             transition: 'all 0.3s ease',
             '&:hover': {
               backgroundColor: '#93c5fd',
-              color: '#1e293b', // sötét háttérhez világos szöveg
+              color: '#1e293b',
             },
           },
           '& .Mui-selected': {
             backgroundColor: '#93c5fd',
-            color: '#1e293b', // kijelölt elem színe
+            color: '#1e293b',
             '&:hover': {
-              backgroundColor: '#60a5fa', // hoverre kicsit világosabb
+              backgroundColor: '#60a5fa',
               color: '#1e293b',
             },
           },
