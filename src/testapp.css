@@ -150,3 +150,52 @@
   font-size: 14px;
   line-height: 1.4;
 }
+.nincskedv{
+    position:absolute; 
+    width: fit-content;
+    height: fit-content;
+    top: 30px;
+    right: 30px; 
+}
+.vankedv{
+    width: 100%;
+    border-bottom: 1px solid gray;
+    padding-bottom: 60px !important;
+    margin-bottom: 20px !important;
+}
+@media screen and (max-width:900px) {
+    .card-container {
+min-width: 320px;
+}
+
+    .nincskedv{
+        position: absolute; 
+        width: fit-content;
+        height: fit-content;
+        left: 50% !important;    /* bal oldalt 50%-ra tesszük */
+        top: 130px !important;
+        transform: translateX(-50%);  /* és az elem feléig visszahúzzuk, így lesz középen */
+        
+    }
+    .vankedv{
+        margin-bottom: 20px !important;
+        padding-bottom: 150px !important;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .card-container {
+min-width: 300px;
+}}
+@media screen and (max-width:300px) {
+    .card-container {
+min-width: 280px;
+}}
+@media screen and (max-width:280px) {
+    .card-container {
+min-width: 260px;
+}}
+@media screen and (max-width:260px) {
+    .card-container {
+min-width: 200px;
+}}

@@ -3,7 +3,6 @@ import Pagination from '@mui/material/Pagination';
 import Box from '@mui/material/Box';
 
 export const ContentPagination = ({ page, setPage }) => {
-  
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -13,11 +12,8 @@ export const ContentPagination = ({ page, setPage }) => {
       sx={{
         display: 'flex',
         justifyContent: 'center',
-        position: 'absolute', // Az elem fixálása
-        bottom: 40, // A képernyő aljára helyezés
-        left: '50%', // Az elem elhelyezése balra a képernyő közepén
-        transform: 'translateX(-50%)', // Középre igazítja a boxot
-        marginBottom: 4,
+        alignItems: 'center',
+        paddingBottom: '20px', // hogy ne ütközzön az alsó navval
       }}
     >
       <Pagination
@@ -25,7 +21,7 @@ export const ContentPagination = ({ page, setPage }) => {
         page={page}
         onChange={handleChange}
         color="primary"
-        size="large"
+        size="medium"
         shape="rounded"
         showFirstButton
         showLastButton

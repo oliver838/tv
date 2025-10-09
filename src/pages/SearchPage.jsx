@@ -27,8 +27,8 @@ export const SearchPage = () => {
   const isInputValid = txt.trim().length > 0;  // For simplicity, checking non-empty string
 
   return (
-    <PageLayout sx={{ position: 'relative' }} title="Search" page={page} setPage={setPage} data={data}>
-      <Box sx={{ position: 'absolute', width: 'fit-content', height: 'fit-content', top: '30px', right: '30px' }}>
+    <PageLayout title="Search" page={page} setPage={setPage} data={data}>
+      <Box className="nincskedv" sx={{ position: 'absolute', width: 'fit-content', height: 'fit-content', top: '30px', right: '30px' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <TextField
             sx={{
