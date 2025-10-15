@@ -81,12 +81,12 @@ export const SearchPage = () => {
           />
         </Tabs>
       </Box>
-      <Grid container spacing={3} sx={{ margin: "50px" }} justifyContent="center">
+      <Grid container spacing={3} sx={{ marginTop:'50px',marginBottom:'50px'}} justifyContent="center">
         {data && data.results.map((obj) =>
           value == 0 ? (
-            <MyCard key={obj.id} {...obj} />
+            <MyCard key={obj.id} {...obj} type={'movie'}/>
           ) : (
-            <MyCard key={obj.id} {...obj} title={obj.name} release_date={obj.first_air_date} />
+            <MyCard key={obj.id} {...obj} title={obj.name} release_date={obj.first_air_date} type={'tv'}/>
           )
         )}
       </Grid>

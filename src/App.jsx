@@ -7,7 +7,8 @@ import { Movies } from './pages/Movies'
 import { SearchPage } from './pages/SearchPage'
 import { TvSeries } from './pages/TvSeries'
 import { MyLayout } from './components/MyLayout'
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 function App() {
   const [count, setCount] = useState(0)
 

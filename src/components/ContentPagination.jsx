@@ -9,23 +9,29 @@ export const ContentPagination = ({ page, setPage }) => {
 
   return (
     <Box
+     
       sx={{
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
-        paddingBottom: '20px', // hogy ne ütközzön az alsó navval
+        alignItems:'flex-end',
+        width:'100%',
+        height:'100px',
+        paddingBottom:'5px'
       }}
     >
       <Pagination
         count={20}
         page={page}
+        
         onChange={handleChange}
         color="primary"
-        size="medium"
+        size="small"
         shape="rounded"
-        showFirstButton
+        showFirstButton 
+        
         showLastButton
         sx={{
+          fontSize:'1px',
           '& .MuiPaginationItem-root': {
             color: '#fff',
             borderColor: '#93c5fd',

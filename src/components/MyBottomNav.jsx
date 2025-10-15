@@ -21,11 +21,12 @@ export const MyBottomNav = () => {
   return (
     <Box
       sx={{
-        position: "fixed",
+        position: "sticky",
         left: 0,
         right: 0,
         bottom: 0,
         zIndex: 10,
+        minWidth:'280px'
       }}
     >
       <BottomNavigation
@@ -35,17 +36,17 @@ export const MyBottomNav = () => {
         onChange={handleChange}
       >
         <BottomNavigationAction
-          sx={{ color: "#bfdbfe", fontSize: "24px" }}
+          sx={{ color: "#bfdbfe", fontSize: "24px", maxWidth:'33%' }}
           label="Movies"
           icon={<MdMovie />}
         />
         <BottomNavigationAction
-          sx={{ color: "#bfdbfe", fontSize: "24px" }}
+          sx={{ color: "#bfdbfe", maxWidth:'33%',fontSize: "24px" }}
           label="TVSeries"
           icon={<MdOutlineLiveTv />}
         />
         <BottomNavigationAction
-          sx={{ color: "#bfdbfe", fontSize: "24px" }}
+          sx={{ color: "#bfdbfe", fontSize: "24px", maxWidth:'33%' }}
           label="Search"
           icon={<CiSearch />}
         />

@@ -1,6 +1,7 @@
 /* Globális reset és font */
 * {
-  margin: 0;
+  margin: 0 !important;
+ 
   box-sizing: border-box;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -15,6 +16,7 @@
   justify-content: space-between; /* Egyenlő távolságok a kártyák között */
   margin-bottom: 20px;
   min-height: 500px;
+ 
 }
 
 /* Kártya, amely egy-egy kártyát tartalmaz */
@@ -165,7 +167,9 @@
 }
 @media screen and (max-width:900px) {
     .card-container {
-min-width: 320px;
+min-width: 300px;
+margin: 0;
+padding: 0;
 }
 
     .nincskedv{
@@ -183,19 +187,55 @@ min-width: 320px;
     }
 }
 
-@media screen and (max-width:320px) {
-    .card-container {
-min-width: 300px;
-}}
-@media screen and (max-width:300px) {
-    .card-container {
-min-width: 280px;
-}}
-@media screen and (max-width:280px) {
-    .card-container {
-min-width: 260px;
-}}
-@media screen and (max-width:260px) {
-    .card-container {
-min-width: 200px;
-}}
+
+
+.relati{
+  position: relative;
+}
+.absolu{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html, body {
+  min-width: 300px;
+}
+body{
+  position: relative;
+}
+
+
+h3{
+  text-align: center;
+}
+button.slick-arrow::before{
+  color: black !important;
+}
+.kisemberkepek{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  height: auto;
+}
+.kiskepek{
+  width: 100%;
+}
+
+.slick-slide,.slick-slide.slick-active,.slick-slide div{
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center;
+
+}
+.modalkam{
+  display: flex;
+  width: 80%;
+  
+  align-items: center;
+  justify-content: center;
+}

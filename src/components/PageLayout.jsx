@@ -48,7 +48,7 @@ export const PageLayout = ({title,children,page,setPage,type,selectedGenres,setS
       />
     )}
 
-    <Box sx={{ minHeight: 'max-content' }}>
+    <Box sx={{paddingTop:'20px', minHeight: 'max-content' }}>
       {children}
     </Box>
   </Box>
