@@ -3,76 +3,79 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade'; // ✨ Fade komponens importálása
 import { useQuery } from 'react-query';
-import { getDetailsData } from '../../utils';
+import { getDetailsData, img_500 } from '../../utils';
 import { MyCarousel } from './MyCarousel';
 import { ShowTrailer } from './ShowTrailer';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
-export const MyModal = ({open,setOpen,handleOpen,handleClose,type,id}) => {
+export const MyModal = ({ open, setOpen, handleOpen, handleClose, type, id, poster_path}) => {
   const urlDetails = `https://api.themoviedb.org/3/${type}/${id}?api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
-  
-  const {data,isLoading,isError,error} = useQuery({queryKey:['details',urlDetails],queryFn:getDetailsData})
+
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ['details', urlDetails],
+    queryFn: getDetailsData
+  });
+console.log(data);
 
   return (
     <div>
       <Button onClick={handleOpen}>Open modal</Button>
+
       <Modal
-  open={open}
-  onClose={handleClose}
-  aria-labelledby="modal-modal-title"
-  aria-describedby="modal-modal-description"
-  sx={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }}
->
-  <Box
-    sx={{
-      width: '80%',
-      maxWidth: 1000,
-      maxHeight: '90vh',         // fontos a vertical scrollhoz
-      overflowY: 'auto',         // függőleges scroll
-      bgcolor: 'background.paper',
-      borderRadius: 2,
-      boxShadow: 24,
-      p: 4,
-      outline: 'none',
-    }}
-  >
-    <Typography id="modal-modal-title" variant="h5" component="h2" gutterBottom>
-      {data?.title || 'Loading...'}
-    </Typography>
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition // ✅ fontos: a DOM-ot csak az animáció után távolítja el
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {/* ✨ Fade wrapper körülöleli a Box-ot */}
+        <Fade in={open} timeout={600}>
+          <Box
+            className="ModalBox"
+            sx={{
+              width: '80%',
+              maxWidth: 1400,
+              minHeight: '60%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              borderRadius: 2,
+              p: 4,
+              outline: 'none',
+            }}
+          >
+            <div style={{display:'flex', flexWrap:'wrap', flexDirection:'row', gap:'30px'}}>
+            <div style={{display:'flex', flexDirection:'column', gap:'20px', alignItems:'center', justifyContent:'start', flexBasis:'45%', flex:'1 0'}}> <img style={{  boxShadow: '0 0 10px rgba(147, 197, 253, 0.4)', height:'70%',  width:'75%', objectFit:'cover', borderRadius:'10px'}} src={img_500+poster_path} alt="" /> 
+                        <Box sx={{ mt: 3, overflowX: 'auto' }}>
+              <ShowTrailer type={type} id={id} />
+            </Box></div>
+            <div style={{flexBasis:'45%',display:'flex', flexDirection:'column', gap:'15px',  flex:'1 0'}}>
+              <Typography id="modal-modal-title" variant="h5" component="h2" gutterBottom>
+                {data?.name ?  data.name : data?.title ? data.title: 'Loading...'}
+              </Typography>
 
-    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-      {data?.overview || 'Nincs leírás.'}
-    </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                {data?.overview || 'Nincs leírás.'}
+              </Typography>
+            </div>
+            </div>
 
-    {/* Horizontálisan görgethető carousel */}
-    <Box sx={{ mt: 3 }}>
-      <MyCarousel id={id} type={type} open={open} />
-    </Box>
+            {/* Carousel */}
+            <Box sx={{ mt: 3 }}>
+              <MyCarousel id={id} type={type} open={open} />
+            </Box>
 
-    {/* Trailer szekció – opcionálisan horizontális scroll, ha szükséges */}
-    <Box sx={{ mt: 3, overflowX: 'auto' }}>
-      <ShowTrailer type={type} id={id} />
-    </Box>
-  </Box>
-</Modal>
+            {/* Trailer */}
 
+            
+          </Box>
+        </Fade>
+      </Modal>
     </div>
   );
-}
+};

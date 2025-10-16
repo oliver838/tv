@@ -9,7 +9,7 @@ export const Genres = ({type,selectedGenres,setSelectedGenres}) => {
     data && console.log(data);
     
   return (
-    <Stack direction='row' gap='1rem' flexWrap='wrap' justifyContent='center'>
+    <Stack direction='row' gap='1rem' flexWrap='wrap'  justifyContent='center'>
         {data && data.genres.map(obj => 
             <SingleChip key={obj.id} {...obj} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres}/>
         )}

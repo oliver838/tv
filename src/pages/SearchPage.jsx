@@ -38,9 +38,10 @@ export const SearchPage = () => {
                 background: "linear-gradient(270deg, rgba(184, 184, 184, 1) 0%, rgba(101, 106, 117, 1) 100%)",
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
+                padding:'5px'
               },
               '& .MuiInputLabel-root': {
-                color:'#1976d2',
+                color:'#315274ff',
                 fontWeight: 'bold',
               },
               '& .MuiInput-underline:before': {

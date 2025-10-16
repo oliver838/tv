@@ -26,7 +26,7 @@ export const MyCard = ({ poster_path, overview, release_date, vote_average, titl
           <p className="date">{release_date}</p>
           <p className="title">{title}</p>
           <p className="overview">{overview}</p>
-          <div className='absolu'><MyModal open={open} setOpen={setOpen} handleOpen={handleOpen} handleClose={handleClose} type={type} id={id}/></div>
+          <div className='absolu'><MyModal open={open} setOpen={setOpen} handleOpen={handleOpen} handleClose={handleClose} type={type} id={id} poster_path={poster_path}/></div>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ export const MyCarousel = ({ type, id, open }) => {
 
   // Keep settings in state so we can update them dynamically
   const [settings, setSettings] = useState({
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -36,21 +36,21 @@ export const MyCarousel = ({ type, id, open }) => {
   });
 
   useEffect(() => {
-    if (windowWidth < 500) {
+    if (windowWidth < 480) {
       // When open is true, change slidesToShow and slidesToScroll to 1
       setSettings((prev) => ({
         ...prev,
         slidesToShow: 1,
         slidesToScroll: 1,
       }));
-    } else if (windowWidth < 800) {
+    } else if (windowWidth < 768) {
       // Revert back to original when open is false
       setSettings((prev) => ({
         ...prev,
         slidesToShow: 2,
         slidesToScroll: 2,
       }));
-    } else if (windowWidth < 1100) {
+    } else if (windowWidth < 1024) {
       // Revert back to original when open is false
       setSettings((prev) => ({
         ...prev,
@@ -73,14 +73,18 @@ export const MyCarousel = ({ type, id, open }) => {
   return (
     <Slider ref={sliderRef} {...settings}>
       {data?.cast.map(obj => (
-        <div key={obj.id} className="kisemberkepek">
-          <img
+        <div>
+        <div key={obj.id}  className="kisemberkepek">
+          <img 
             className="kiskepek"
             src={obj.profile_path ? img_300 + obj.profile_path : noImage}
             alt={obj.name}
           />
-          <b>{obj.name}</b>
-        </div>
+          </div >
+          <span style={{marginTop:'20px'}}>
+          <b sx={{ marginTop: "10px"}} style={{ color: "#fff" }}>{obj.name}</b> {/* White text for actor names */}
+          </span>
+          </div>
       ))}
     </Slider>
   );

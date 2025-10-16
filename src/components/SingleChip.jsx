@@ -25,7 +25,7 @@ export const  SingleChip = ({id,name,selectedGenres,setSelectedGenres}) => {
 
   return (
     <Stack direction="row" spacing={1}>
-      <Chip sx={{color:'#fff', backgroundColor:"#312f35ff"}}
+      <Chip sx={{color:'#a7bbceff', backgroundColor:"#312f35ff", padding:'5px', bgcolor: isSelected? '#071a36ff' : '#262a30ff'}}
         label={name}
         clickable
         

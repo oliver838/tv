@@ -6,17 +6,29 @@ import { CiSearch } from "react-icons/ci";
 import { MdMovie } from "react-icons/md";
 import { MdOutlineLiveTv } from "react-icons/md";
 import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
 export const MyBottomNav = () => {
-  const [value, setValue] = React.useState(0);
+  const currentUrl = window.location.pathname;
+
+  const initialValue = currentUrl.includes('tvseries') 
+    ? 1  // TVSeries
+    : currentUrl.includes('search')
+    ? 2  // Search
+    : 0; // Movies
+
+  const [value, setValue] = React.useState(initialValue); // Inicializálás a currentUrl alapján
+
   const navigate = useNavigate();
 
+  // Handle BottomNavigation value change
   const handleChange = (event, newValue) => {
     setValue(newValue);
     if (newValue === 0) navigate('/');
     if (newValue === 1) navigate('/tvseries');
     if (newValue === 2) navigate('/search');
   };
+
 
   return (
     <Box
@@ -26,7 +38,7 @@ export const MyBottomNav = () => {
         right: 0,
         bottom: 0,
         zIndex: 10,
-        minWidth:'280px'
+        minWidth: '280px'
       }}
     >
       <BottomNavigation
@@ -36,17 +48,17 @@ export const MyBottomNav = () => {
         onChange={handleChange}
       >
         <BottomNavigationAction
-          sx={{ color: "#bfdbfe", fontSize: "24px", maxWidth:'33%' }}
+          sx={{ color: "#bfdbfe", fontSize: "24px", maxWidth: '33%' }}
           label="Movies"
           icon={<MdMovie />}
         />
         <BottomNavigationAction
-          sx={{ color: "#bfdbfe", maxWidth:'33%',fontSize: "24px" }}
+          sx={{ color: "#bfdbfe", maxWidth: '33%', fontSize: "24px" }}
           label="TVSeries"
           icon={<MdOutlineLiveTv />}
         />
         <BottomNavigationAction
-          sx={{ color: "#bfdbfe", fontSize: "24px", maxWidth:'33%' }}
+          sx={{ color: "#bfdbfe", fontSize: "24px", maxWidth: '33%' }}
           label="Search"
           icon={<CiSearch />}
         />
