@@ -17,8 +17,8 @@ export const MyCarousel = ({ type, id, open }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     responsive: [
     {
       breakpoint: 1024,
@@ -58,13 +58,21 @@ export const MyCarousel = ({ type, id, open }) => {
         slidesToScroll: 3,
       }));
     }
-    else{
-      
+    else if (windowWidth < 1124) {
       // Revert back to original when open is false
       setSettings((prev) => ({
         ...prev,
         slidesToShow: 4,
         slidesToScroll: 4,
+      }));
+    }
+    else{
+      
+      // Revert back to original when open is false
+      setSettings((prev) => ({
+        ...prev,
+        slidesToShow: 5,
+        slidesToScroll: 5,
       }));
     
     }
